@@ -1,0 +1,24 @@
+{
+  "name": "@hawknext/runtime-bundle",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "HawkNext max-closed-loop runtime manifest, resolver, and signature self-check",
+  "exports": {
+    ".": {
+      "types": "./src/index.ts",
+      "default": "./src/index.ts"
+    }
+  },
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "scripts": {
+    "test": "node --test test/unit/*.test.ts",
+    "test:unit": "node --test test/unit/*.test.ts",
+    "self-check": "node scripts/self-check.mjs",
+    "layout": "node scripts/emit-layout.mjs"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

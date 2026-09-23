@@ -1,0 +1,33 @@
+name: hawk-ui-skin
+
+on:
+  push:
+    paths:
+      - "packages/hawk-ui/**"
+      - "assets/hawk-ui/**"
+      - ".github/workflows/hawk-ui-skin.yml"
+  pull_request:
+    paths:
+      - "packages/hawk-ui/**"
+      - "assets/hawk-ui/**"
+      - ".github/workflows/hawk-ui-skin.yml"
+  workflow_dispatch:
+
+jobs:
+  skin-and-wizard:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: packages/hawk-ui
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+      - name: Hawk UI tokens + wizard + legacy layout tests
+        run: node --test test/unit/*.test.ts
+      - name: Emit CSS and verify tokens present
+        run: |
+          node scripts/emit-tokens-css.mjs ../../assets/hawk-ui/tokens.css
+          grep -q '#D6AD5C' ../../assets/hawk-ui/tokens.css
+          grep -q 'hawk-gold' ../../assets/hawk-ui/tokens.css

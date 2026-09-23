@@ -1,0 +1,28 @@
+# HawkNext product repo
+node_modules/
+dist/
+out/
+*.tsbuildinfo
+.DS_Store
+.env
+.env.local
+.env.*.local
+.idea/
+.vscode/
+.cache/
+
+# upstream research clones (not product source)
+research/codex/
+
+# runtime vendor payloads (fetched at package time)
+runtime/extract/
+*.exe
+*.msi
+*.dmg
+*.AppImage
+
+# never commit keys
+*.pem
+*.pfx
+*.p12
+secrets.json

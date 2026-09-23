@@ -1,0 +1,72 @@
+/* HawkNext · HawkBrain skin tokens v2.2 */
+:root {
+  --hawk-bg-primary: #080B0C;
+  --hawk-bg-card: #111719;
+  --hawk-bg-input: #1A2424;
+  --hawk-gold: #D6AD5C;
+  --hawk-text: #F3EFE5;
+  --hawk-teal: #39C7B0;
+  --hawk-text-secondary: #8A9494;
+  --hawk-error: #BE1D5D;
+  --hawk-warning: #F4A259;
+  --hawk-bg-light: #FAFAF8;
+  --hawk-surface-light: #E8ECEB;
+  --hawk-text-light: #2E3A3A;
+  --hawk-radius-btn: 8px;
+  --hawk-radius-input: 10px;
+  --hawk-radius-card: 12px;
+  --hawk-radius-pill: 9999px;
+  --hawk-font-en: Inter, -apple-system, BlinkMacSystemFont, sans-serif;
+  --hawk-font-cn: PingFang SC, Noto Sans SC, sans-serif;
+  --hawk-font-mono: JetBrains Mono, Geist Mono, monospace;
+  --hawk-h1: 700 48px/1.15 var(--hawk-font-en);
+  --hawk-h2: 600 32px/1.25 var(--hawk-font-en);
+  --hawk-h3: 600 24px/1.3 var(--hawk-font-en);
+  --hawk-h4: 500 18px/1.4 var(--hawk-font-en);
+  --hawk-body: 400 16px/1.6 var(--hawk-font-cn);
+  --hawk-caption: 500 12px/1.4 var(--hawk-font-cn);
+  --hawk-space-1: 8px;
+  --hawk-space-2: 12px;
+  --hawk-space-3: 16px;
+  --hawk-space-4: 20px;
+  --hawk-space-5: 24px;
+  --hawk-space-6: 32px;
+  --hawk-space-7: 48px;
+}
+
+.theme-zai-dark,
+.theme-dark,
+[data-theme="dark"] {
+  --background: var(--hawk-bg-primary);
+  --background-alt: var(--hawk-bg-card);
+  --foreground: var(--hawk-text);
+  --foreground-subtle: var(--hawk-text-secondary);
+  --card: var(--hawk-bg-card);
+  --input: var(--hawk-bg-input);
+  --primary: var(--hawk-gold);
+  --primary-foreground: var(--hawk-bg-primary);
+  --accent: var(--hawk-teal);
+  --destructive: var(--hawk-error);
+  --warning: var(--hawk-warning);
+  --border: var(--hawk-bg-input);
+  --radius: var(--hawk-radius-btn);
+}
+
+.theme-zai-light,
+.theme-light,
+[data-theme="light"] {
+  --background: var(--hawk-bg-light);
+  --background-alt: var(--hawk-surface-light);
+  --foreground: var(--hawk-text-light);
+  --foreground-subtle: var(--hawk-text-secondary);
+  --card: var(--hawk-surface-light);
+  --input: #FFFFFF;
+  --primary: var(--hawk-gold);
+  --primary-foreground: #080B0C;
+  --accent: var(--hawk-teal);
+  --destructive: var(--hawk-error);
+  --warning: var(--hawk-warning);
+  --border: var(--hawk-surface-light);
+  --radius: var(--hawk-radius-btn);
+}
+

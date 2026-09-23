@@ -1,0 +1,40 @@
+name: driver-zcode-llmapi
+
+on:
+  push:
+    paths:
+      - "packages/driver-zcode/**"
+      - "packages/llmapi-adapter/**"
+      - "vendor/zcode/config/provider/hawknext-builtin.json"
+      - ".github/workflows/driver-zcode-llmapi.yml"
+  pull_request:
+    paths:
+      - "packages/driver-zcode/**"
+      - "packages/llmapi-adapter/**"
+      - "vendor/zcode/config/provider/hawknext-builtin.json"
+      - ".github/workflows/driver-zcode-llmapi.yml"
+  workflow_dispatch:
+
+jobs:
+  coding-default:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: packages/driver-zcode
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+      - name: Unit tests (preset / rename / coding session)
+        run: node --test test/unit/*.test.ts
+
+  builtin-preset:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+      - name: hawknext-builtin must include llmapi + default Auto
+        run: node packages/driver-zcode/scripts/check-builtin-preset.mjs

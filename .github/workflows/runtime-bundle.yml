@@ -1,0 +1,32 @@
+name: runtime-bundle
+
+on:
+  push:
+    paths:
+      - "packages/runtime-bundle/**"
+      - "docs/runtime-bundle-design.md"
+      - ".github/workflows/runtime-bundle.yml"
+  pull_request:
+    paths:
+      - "packages/runtime-bundle/**"
+      - "docs/runtime-bundle-design.md"
+      - ".github/workflows/runtime-bundle.yml"
+  workflow_dispatch:
+
+jobs:
+  runtime-doctor:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: packages/runtime-bundle
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+      - name: Unit tests
+        run: node --test test/unit/*.test.ts
+      - name: Runtime doctor (dev mode)
+        run: node scripts/self-check.mjs .
+        env:
+          HAWKNEXT_ALLOW_PATH: "1"

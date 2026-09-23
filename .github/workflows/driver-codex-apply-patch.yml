@@ -1,0 +1,51 @@
+name: driver-codex-apply-patch
+
+on:
+  push:
+    paths:
+      - "packages/driver-codex/**"
+      - "packages/llmapi-adapter/**"
+      - "research/codex/codex-rs/apply-patch/tests/fixtures/scenarios/**"
+      - ".github/workflows/driver-codex-apply-patch.yml"
+  pull_request:
+    paths:
+      - "packages/driver-codex/**"
+      - "packages/llmapi-adapter/**"
+      - "research/codex/codex-rs/apply-patch/tests/fixtures/scenarios/**"
+      - ".github/workflows/driver-codex-apply-patch.yml"
+  workflow_dispatch:
+
+jobs:
+  apply-patch-regression:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: packages/driver-codex
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+      - name: Unit + mimo shape + codex scenarios
+        run: node --test test/unit/*.test.ts test/mimo/*.test.ts
+
+  live-mimo-regression:
+    runs-on: ubuntu-latest
+    needs: apply-patch-regression
+    defaults:
+      run:
+        working-directory: packages/driver-codex
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+      - name: Live mimo apply-patch probes (skip without key)
+        env:
+          HAWKNEXT_LLMAPI_API_KEY: ${{ secrets.HAWKNEXT_LLMAPI_API_KEY }}
+        run: |
+          if [ -z "$HAWKNEXT_LLMAPI_API_KEY" ]; then
+            echo "no key — skip live mimo apply-patch probes"
+            exit 0
+          fi
+          HAWKNEXT_LLMAPI_LIVE=1 node --test test/mimo/live-mimo-probe.test.ts

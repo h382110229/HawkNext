@@ -1,0 +1,68 @@
+name: llmapi-adapter
+
+on:
+  push:
+    paths:
+      - "packages/llmapi-adapter/**"
+      - ".github/workflows/llmapi-adapter.yml"
+  pull_request:
+    paths:
+      - "packages/llmapi-adapter/**"
+      - ".github/workflows/llmapi-adapter.yml"
+  workflow_dispatch:
+
+jobs:
+  unit:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: packages/llmapi-adapter
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+      - name: Unit tests (mock, no network)
+        run: node --test test/unit/*.test.ts
+
+  p1-integration:
+    runs-on: ubuntu-latest
+    needs: unit
+    # Live llmapi P1 four cases. Tests self-skip without key/LIVE flag.
+    defaults:
+      run:
+        working-directory: packages/llmapi-adapter
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+      - name: P1 four use cases (live or skip)
+        env:
+          HAWKNEXT_LLMAPI_API_KEY: ${{ secrets.HAWKNEXT_LLMAPI_API_KEY }}
+        run: |
+          if [ -z "$HAWKNEXT_LLMAPI_API_KEY" ]; then
+            echo "HAWKNEXT_LLMAPI_API_KEY not configured — skip live P1"
+            node --test test/integration/p1-four-cases.test.ts
+            exit 0
+          fi
+          HAWKNEXT_LLMAPI_LIVE=1 node --test test/integration/p1-four-cases.test.ts
+
+  rebrand-dod:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: DoD brand residual must stay 0 in adapter
+        # guard.ts / guard tests intentionally list official hosts as DENY entries
+        # (iron rule: never silently call them). Allowlist those files only.
+        run: |
+          if rg -i 'zcode|z\.ai|chatgpt|openai\.com|cdn-zcode|bigmodel' \
+            packages/llmapi-adapter \
+            -g '!**/LICENSE*' -g '!**/NOTICE*' -g '!**/THIRD-PARTY*' \
+            -g '!**/guard.ts' \
+            -g '!**/guard.test.ts' \
+            -g '!**/failover.test.ts'; then
+            echo "brand residual found in llmapi-adapter" >&2
+            exit 1
+          fi
+          echo "DoD residual = 0"
