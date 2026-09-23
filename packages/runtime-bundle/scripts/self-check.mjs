@@ -10,7 +10,9 @@ const resolutions = resolveRuntime(DEFAULT_MANIFEST, {
   bundleRoot,
   allowPathFallback: process.env.HAWKNEXT_ALLOW_PATH === "1" || true,
 });
-const closed = evaluateClosedLoop(resolutions, process.env.HAWKNEXT_RELEASE === "1");
+const closed = evaluateClosedLoop(resolutions, process.env.HAWKNEXT_RELEASE === "1", {
+  allowPathFallback: process.env.HAWKNEXT_ALLOW_PATH === "1",
+});
 
 console.log("=== HawkNext runtime doctor ===");
 for (const r of closed.resolved) {

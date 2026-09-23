@@ -26,3 +26,12 @@ runtime/extract/
 *.pfx
 *.p12
 secrets.json
+
+# runtime vendor payloads (fetched via scripts/fetch-runtime-tools.mjs)
+runtime/**/*.exe
+runtime/**/_pandoc/
+runtime/**/_fd/
+runtime/**/*.zip
+runtime/**/*.7z
+runtime/**/*.tar.gz
+runtime/**/*.tar.xz

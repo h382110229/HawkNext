@@ -101,6 +101,11 @@ function resolveOne(
       join(root, spec.bundledPath + ".exe"),
       join(root, spec.bundledPath, "bin", spec.commands[0]!),
       join(root, spec.bundledPath, `${spec.commands[0]}.exe`),
+      // natural family/bin layout: runtime/<family>/bin/<cmd>
+      join(root, "runtime", spec.family, "bin", spec.commands[0]!),
+      join(root, "runtime", spec.family, "bin", `${spec.commands[0]}.exe`),
+      join(root, "runtime", spec.family, `${spec.commands[0]}.exe`),
+      join(root, "runtime", spec.family, spec.commands[0]!),
     ];
     for (const c of candidates) {
       const okFile = existsFile(c, probe);
@@ -171,14 +176,16 @@ export interface ClosedLoopReport {
 export function evaluateClosedLoop(
   resolutions: ToolResolution[],
   requireBundledForRelease = true,
+  opts?: { allowPathFallback?: boolean },
 ): ClosedLoopReport {
   const missingRequired = resolutions.filter((r) => r.required && !r.ok);
   const fullyBundled =
     resolutions
       .filter((r) => r.required && r.ok)
       .every((r) => r.source === "bundled" || r.source === "managed");
+  const allowPath = opts?.allowPathFallback ?? false;
   const ok =
     missingRequired.length === 0 &&
-    (!requireBundledForRelease || fullyBundled || process.env.HAWKNEXT_ALLOW_PATH === "1");
+    (!requireBundledForRelease || fullyBundled || allowPath);
   return { ok, missingRequired, resolved: resolutions, fullyBundled };
 }
