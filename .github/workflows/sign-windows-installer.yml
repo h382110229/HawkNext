@@ -1,0 +1,89 @@
+# SignPath code signing (OSS free tier) for HawkNext Windows installer.
+# Docs: https://about.signpath.io/
+#
+# Setup once:
+#   1. SignPath.io → Organization → connect GitHub h382110229/HawkNext
+#   2. Create Project "HawkNext", Signing Policy "release" (code-signing)
+#   3. Repo secrets: SIGNPATH_API_TOKEN, SIGNPATH_ORG_ID (UUID)
+#
+# Flow: build NSIS → upload artifact → SignPath signs → download signed exe.
+# Keep unsigned path for PRs; only sign on tags / main releases.
+
+name: sign-windows-installer
+
+on:
+  workflow_dispatch:
+    inputs:
+      sign:
+        description: "Submit to SignPath after build"
+        type: boolean
+        default: true
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: read
+
+jobs:
+  build-and-sign:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+
+      - name: Install workspace
+        working-directory: vendor/zcode
+        run: pnpm install
+
+      - name: Bootstrap / production build
+        working-directory: vendor/zcode
+        run: pnpm run build:bootstrap
+
+      - name: Bundle desktop (NSIS)
+        working-directory: vendor/zcode
+        run: pnpm --filter @hawknext/desktop run bundle
+
+      - name: Collect installer exe
+        id: artifact
+        shell: pwsh
+        run: |
+          $exe = Get-ChildItem -Recurse -Filter "HawkNext-Setup-*.exe" |
+            Sort-Object LastWriteTime -Descending |
+            Select-Object -First 1
+          if (-not $exe) { throw "NSIS Setup exe not found" }
+          New-Item -ItemType Directory -Force -Path dist-sign | Out-Null
+          Copy-Item $exe.FullName dist-sign/
+          Write-Host "artifact=$($exe.Name)"
+          "path=dist-sign/$($exe.Name)" >> $env:GITHUB_OUTPUT
+
+      - name: Upload unsigned installer
+        id: upload-unsigned
+        uses: actions/upload-artifact@v4
+        with:
+          name: hawknext-setup-unsigned
+          path: ${{ steps.artifact.outputs.path }}
+
+      # SignPath: maps uploaded artifact to a signing request.
+      # Requires SIGNPATH_API_TOKEN + SIGNPATH_ORG_ID repository secrets.
+      - name: SignPath submit signing request
+        if: ${{ inputs.sign != false && (github.ref_type == 'tag' || github.ref == 'refs/heads/main') }}
+        uses: signpath/github-action-submit-signing-request@v1
+        with:
+          api-token: ${{ secrets.SIGNPATH_API_TOKEN }}
+          organization-id: ${{ secrets.SIGNPATH_ORG_ID }}
+          project-slug: hawknext
+          signing-policy-slug: release
+          github-artifact-id: ${{ steps.upload-unsigned.outputs.artifact-id }}
+          wait-for-completion: true
+          output-artifact-directory: dist-signed
+
+      - name: Upload signed installer
+        if: ${{ hashFiles('dist-signed/**') != '' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: hawknext-setup-signed
+          path: dist-signed/
