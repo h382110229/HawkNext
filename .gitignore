@@ -35,3 +35,12 @@ runtime/**/*.zip
 runtime/**/*.7z
 runtime/**/*.tar.gz
 runtime/**/*.tar.xz
+
+# local session logs
+*.log
+
+# generated asset copies
+ui-preview/styles.css
+
+# detached upstream git archive (not product source)
+vendor/zcode-upstream-git-archive/

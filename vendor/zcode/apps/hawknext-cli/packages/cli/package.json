@@ -1,0 +1,40 @@
+{
+  "name": "@hawknext/cli",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Main CLI application for hawknext",
+  "bin": {
+    "hawknext": "./dist/hawknext.cjs"
+  },
+  "files": [
+    "dist"
+  ],
+  "type": "module",
+  "main": "./dist/hawknext.cjs",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "build:desktop-agent": "node scripts/build.mjs --desktop-agent",
+    "build:sea": "pnpm --dir ../../../.. exec turbo --skip-infer --cwd apps/hawknext-cli run build --filter=!@hawknext/cli --force && pnpm build && node scripts/build-sea.mjs --all",
+    "sea": "node scripts/build-sea.mjs",
+    "upload:sea": "node scripts/upload-sea-smb.mjs",
+    "clean": "node ../../scripts/clean-dist.mjs",
+    "dev": "tsx src/main.ts",
+    "typecheck": "tsc --noEmit",
+    "lint": "oxlint src",
+    "lint:fix": "oxlint --write src"
+  },
+  "dependencies": {
+    "@hawknext/adapters": "workspace:*",
+    "@hawknext/bootstrap": "workspace:*",
+    "@hawknext/contracts": "workspace:*",
+    "@hawknext/core": "workspace:*",
+    "@hawknext/dynamic-workflow-runtime": "workspace:*",
+    "@hawknext/i18n": "workspace:*",
+    "@hawknext/provider-node": "workspace:*",
+    "@hawknext/shared": "workspace:*",
+    "@hawknext/shared-types": "workspace:*",
+    "@hawknext/tui": "workspace:*",
+    "dotenv": "^17.4.2",
+    "playwright-core": "1.59.1"
+  }
+}

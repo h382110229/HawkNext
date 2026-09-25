@@ -1,0 +1,980 @@
+{
+  "total": 195,
+  "hits": [
+    {
+      "file": "apps/hawknext-cli/packages/adapters/src/auth/cloudCn-oauth.ts",
+      "line": 11,
+      "text": "export interface CloudCnOAuthClientOptions {"
+    },
+    {
+      "file": "apps/hawknext-cli/packages/adapters/src/auth/cloudCn-oauth.ts",
+      "line": 20,
+      "text": "export interface CloudCnOAuthTokenSet {"
+    },
+    {
+      "file": "apps/hawknext-cli/packages/adapters/src/auth/cloudCn-oauth.ts",
+      "line": 25,
+      "text": "export interface CloudCnOAuthClient {"
+    },
+    {
+      "file": "apps/hawknext-cli/packages/adapters/src/auth/cloudCn-oauth.ts",
+      "line": 27,
+      "text": "exchangeCode(input: { code: string }, options?: HttpClientRunOptions): Promise<CloudCnOAuthTokenSet>;"
+    },
+    {
+      "file": "apps/hawknext-cli/packages/adapters/src/auth/cloudCn-oauth.ts",
+      "line": 30,
+      "text": "export class CloudCnOAuthError extends Error {"
+    },
+    {
+      "file": "apps/hawknext-cli/packages/adapters/src/auth/cloudCn-oauth.ts",
+      "line": 33,
+      "text": "this.name = \"CloudCnOAuthError\";"
+    },
+    {
+      "file": "apps/hawknext-cli/packages/adapters/src/auth/cloudCn-oauth.ts",
+      "line": 37,
+      "text": "interface CloudCnTokenEnvelope {"
+    },
+    {
+      "file": "apps/hawknext-cli/packages/adapters/src/auth/cloudCn-oauth.ts",
+      "line": 45,
+      "text": "export function createCloudCnOAuthClient("
+    },
+    {
+      "file": "apps/hawknext-cli/packages/adapters/src/auth/cloudCn-oauth.ts",
+      "line": 46,
+      "text": "options: CloudCnOAuthClientOptions,"
+    },
+    {
+      "file": "apps/hawknext-cli/packages/adapters/src/auth/cloudCn-oauth.ts",
+      "line": 47,
+      "text": "): CloudCnOAuthClient {"
+    },
+    {
+      "file": "apps/hawknext-cli/packages/adapters/src/auth/cloudCn-oauth.ts",
+      "line": 67,
+      "text": "): Promise<CloudCnOAuthTokenSet> {"
+    },
+    {
+      "file": "apps/hawknext-cli/packages/adapters/src/auth/cloudCn-oauth.ts",
+      "line": 69,
+      "text": "throw new CloudCnOAuthError(\"CloudCN OAuth appSecret is required.\");"
+    },
+    {
+      "file": "apps/hawknext-cli/packages/adapters/src/auth/cloudCn-oauth.ts",
+      "line": 90,
+      "text": "const payload = JSON.parse(new TextDecoder().decode(response.body)) as CloudCnTokenEnvelope;"
+    },
+    {
+      "file": "apps/hawknext-cli/packages/adapters/src/auth/cloudCn-oauth.ts",
+      "line": 93,
+      "text": "throw new CloudCnOAuthError(payload.msg ?? \"CloudCN token response is missing accessToken.\");"
+    },
+    {
+      "file": "apps/hawknext-cli/packages/adapters/src/auth/cloudCn-oauth.ts",
+      "line": 103,
+      "text": "export function createCloudCnOAuthState(): string {"
+    },
+    {
+      "file": "apps/hawknext-cli/packages/adapters/src/commands/roots.ts",
+      "line": 17,
+      "text": "includeHawkNextCommands?: boolean;"
+    },
+    {
+      "file": "apps/hawknext-cli/packages/adapters/src/commands/roots.ts",
+      "line": 26,
+      "text": "const includeHawkNext = options.includeHawkNextCommands ?? true;"
+    },
+    {
+      "file": "apps/hawknext-cli/packages/adapters/src/commands/roots.ts",
+      "line": 45,
+      "text": "if (includeHawkNext) {"
+    },
+    {
+      "file": "apps/hawknext-cli/packages/adapters/src/commands/roots.ts",
+      "line": 51,
+      "text": "if (includeHawkNext) {"
+    },
+    {
+      "file": "apps/hawknext-cli/packages/adapters/src/mcp/index.ts",
+      "line": 660,
+      "text": "...(resolved.headers[\"CloudCn-Target-Type\"]"
+    },
+    {
+      "file": "apps/hawknext-cli/packages/adapters/src/mcp/index.ts",
+      "line": 661,
+      "text": "? { identityTargetType: resolved.headers[\"CloudCn-Target-Type\"] }"
+    },
+    {
+      "file": "apps/hawknext-cli/packages/adapters/src/skills/roots.ts",
+      "line": 17,
+      "text": "includeHawkNextSkills?: boolean;"
+    },
+    {
+      "file": "apps/hawknext-cli/packages/adapters/src/skills/roots.ts",
+      "line": 26,
+      "text": "const includeHawkNext = options.includeHawkNextSkills ?? true;"
+    },
+    {
+      "file": "apps/hawknext-cli/packages/adapters/src/skills/roots.ts",
+      "line": 45,
+      "text": "if (includeHawkNext) {"
+    },
+    {
+      "file": "apps/hawknext-cli/packages/adapters/src/skills/roots.ts",
+      "line": 51,
+      "text": "if (includeHawkNext) {"
+    },
+    {
+      "file": "apps/hawknext-cli/packages/cli/src/command-center/create.ts",
+      "line": 121,
+      "text": "if (!deps.loginCloudCn) {"
+    },
+    {
+      "file": "apps/hawknext-cli/packages/cli/src/command-center/create.ts",
+      "line": 132,
+      "text": "await deps.loginCloudCn({"
+    },
+    {
+      "file": "apps/hawknext-cli/packages/cli/src/command-center/types.ts",
+      "line": 160,
+      "text": "export type CommandCenterCloudCnLoginOptions = CommandCenterLoginOptions;"
+    },
+    {
+      "file": "apps/hawknext-cli/packages/cli/src/command-center/types.ts",
+      "line": 162,
+      "text": "export type CommandCenterCloudCnLoginResult = {"
+    },
+    {
+      "file": "apps/hawknext-cli/packages/cli/src/command-center/types.ts",
+      "line": 308,
+      "text": "loginCloudCn?: ("
+    },
+    {
+      "file": "apps/hawknext-cli/packages/cli/src/command-center/types.ts",
+      "line": 309,
+      "text": "options?: CommandCenterCloudCnLoginOptions,"
+    },
+    {
+      "file": "apps/hawknext-cli/packages/cli/src/command-center/types.ts",
+      "line": 310,
+      "text": ") => Promise<CommandCenterCloudCnLoginResult>;"
+    },
+    {
+      "file": "apps/hawknext-cli/packages/cli/src/tui-auth.ts",
+      "line": 6,
+      "text": "CommandCenterCloudCnLoginOptions,"
+    },
+    {
+      "file": "apps/hawknext-cli/packages/cli/src/tui-auth.ts",
+      "line": 35,
+      "text": "export async function loginCloudCnForTui("
+    },
+    {
+      "file": "apps/hawknext-cli/packages/cli/src/tui-auth.ts",
+      "line": 37,
+      "text": "options?: CommandCenterCloudCnLoginOptions,"
+    },
+    {
+      "file": "apps/hawknext-cli/packages/cli/src/tui-prompt-handler.ts",
+      "line": 23,
+      "text": "loginCloudCnForTui,"
+    },
+    {
+      "file": "apps/hawknext-cli/packages/cli/src/tui-prompt-handler.ts",
+      "line": 269,
+      "text": "loginCloudCn: (options) => loginCloudCnForTui(deps, options),"
+    },
+    {
+      "file": "packages/services/src/feedback/feedbackService.ts",
+      "line": 76,
+      "text": "async function getHawkNextJwtToken(): Promise<string | undefined> {"
+    },
+    {
+      "file": "packages/services/src/feedback/feedbackService.ts",
+      "line": 80,
+      "text": "async function hasHawkNextJwtToken(): Promise<boolean> {"
+    },
+    {
+      "file": "packages/services/src/feedback/feedbackService.ts",
+      "line": 81,
+      "text": "return Boolean(await getHawkNextJwtToken());"
+    },
+    {
+      "file": "packages/services/src/feedback/feedbackService.ts",
+      "line": 95,
+      "text": "const jwtToken = await getHawkNextJwtToken();"
+    },
+    {
+      "file": "packages/services/src/feedback/feedbackService.ts",
+      "line": 141,
+      "text": "if (!(await hasHawkNextJwtToken())) {"
+    },
+    {
+      "file": "packages/services/src/feedback/feedbackService.ts",
+      "line": 157,
+      "text": "if (await hasHawkNextJwtToken()) {"
+    },
+    {
+      "file": "packages/services/src/mcp-sync/mcpSyncService.ts",
+      "line": 137,
+      "text": "return checkRemoteSyncDirectoryWriteAccess(dirname(getUserHawkNextMcpConfigPath()));"
+    },
+    {
+      "file": "packages/services/src/mcp-sync/mcpSyncService.ts",
+      "line": 172,
+      "text": "function getUserHawkNextMcpConfigPath(): string {"
+    },
+    {
+      "file": "packages/services/src/mcp-sync/mcpSyncService.ts",
+      "line": 335,
+      "text": "return (await readJsonObject(getUserHawkNextMcpConfigPath())) ?? {};"
+    },
+    {
+      "file": "packages/services/src/mcp-sync/mcpSyncService.ts",
+      "line": 339,
+      "text": "await writeTextAtomic(getUserHawkNextMcpConfigPath(), `${JSON.stringify(config, null, 2)}\\n`);"
+    },
+    {
+      "file": "packages/services/src/mcp-sync/mcpSyncService.ts",
+      "line": 565,
+      "text": "const targetPath = getUserHawkNextMcpConfigPath();"
+    },
+    {
+      "file": "packages/services/src/model-provider/cloudCnStartPlanHawkNextJwt.ts",
+      "line": 6,
+      "text": "interface CloudCNStartPlanHawkNextJwtCredentialService {"
+    },
+    {
+      "file": "packages/services/src/model-provider/cloudCnStartPlanHawkNextJwt.ts",
+      "line": 10,
+      "text": "export async function resolveCloudCNStartPlanHawkNextJwt(params: {"
+    },
+    {
+      "file": "packages/services/src/model-provider/cloudCnStartPlanHawkNextJwt.ts",
+      "line": 11,
+      "text": "credentialService?: CloudCNStartPlanHawkNextJwtCredentialService;"
+    },
+    {
+      "file": "packages/services/src/model-provider/cloudCnStartPlanHawkNextJwt.ts",
+      "line": 13,
+      "text": "trustCachedHawkNextJwt?: boolean;"
+    },
+    {
+      "file": "packages/services/src/model-provider/cloudCnStartPlanHawkNextJwt.ts",
+      "line": 16,
+      "text": "if (params.trustCachedHawkNextJwt === true || activeProvider === CLOUD_CN_PROVIDER_ID) {"
+    },
+    {
+      "file": "packages/services/src/model-provider/codingPlanProviderAvailability.ts",
+      "line": 21,
+      "text": "import { resolveCloudCNStartPlanHawkNextJwt } from \"./cloud-cnStartPlanHawkNextJwt.js\";"
+    },
+    {
+      "file": "packages/services/src/model-provider/codingPlanProviderAvailability.ts",
+      "line": 445,
+      "text": "const hawknextJwtToken = await resolveCloudCNStartPlanHawkNextJwt({"
+    },
+    {
+      "file": "packages/services/src/model-provider/codingPlanProviderAvailability.ts",
+      "line": 455,
+      "text": "const credentialJwt = await loadZaiProviderConnectionHawkNextJwtToken(context);"
+    },
+    {
+      "file": "packages/services/src/model-provider/codingPlanProviderAvailability.ts",
+      "line": 507,
+      "text": "async function loadZaiProviderConnectionHawkNextJwtToken("
+    },
+    {
+      "file": "packages/services/src/node.ts",
+      "line": 1428,
+      "text": "onHawkNextJwtInvalid: (input, headers) => hawknextJwtLogoutHandlerRef.current?.(input, headers),"
+    },
+    {
+      "file": "packages/services/src/node.ts",
+      "line": 1429,
+      "text": "isHawkNextJwtRequest: (input, headers) =>"
+    },
+    {
+      "file": "packages/services/src/oauth/providers/cloudCnProviderAdapter.ts",
+      "line": 16,
+      "text": "interface CloudCNHawkNextTokenEnvelope {"
+    },
+    {
+      "file": "packages/services/src/oauth/providers/cloudCnProviderAdapter.ts",
+      "line": 122,
+      "text": "const tokenSet = await this.exchangeHawkNextJwtToken(params, _context);"
+    },
+    {
+      "file": "packages/services/src/oauth/providers/cloudCnProviderAdapter.ts",
+      "line": 129,
+      "text": "private async exchangeHawkNextJwtToken("
+    },
+    {
+      "file": "packages/services/src/oauth/providers/cloudCnProviderAdapter.ts",
+      "line": 147,
+      "text": "const payload = await readApiJson<CloudCNHawkNextTokenEnvelope>("
+    },
+    {
+      "file": "packages/services/src/oauth/providers/cloudCnProviderAdapter.ts",
+      "line": 301,
+      "text": "function resolveCloudCNBusinessAccessToken(payload: CloudCNHawkNextTokenEnvelope): string {"
+    },
+    {
+      "file": "packages/services/src/oauth/repo/oauthCredentialRepo.ts",
+      "line": 419,
+      "text": "if (shouldClearHawkNextJwtOnLogout(provider)) {"
+    },
+    {
+      "file": "packages/services/src/oauth/repo/oauthCredentialRepo.ts",
+      "line": 450,
+      "text": "function shouldClearHawkNextJwtOnLogout(provider: OAuthProviderId): boolean {"
+    },
+    {
+      "file": "packages/services/src/official-mcp/officialMcpCredentials.ts",
+      "line": 9,
+      "text": "*   1. 显式产出 CloudCn-Target-Type（Off-Peak 侧当前没有生产者）；"
+    },
+    {
+      "file": "packages/services/src/official-mcp/officialMcpCredentials.ts",
+      "line": 13,
+      "text": "* 凭证通道：Coding Plan 凭证走 `X-CloudCn-Authorization` + MaaS 登录 JWT，"
+    },
+    {
+      "file": "packages/services/src/plugin-sync/pluginSyncService.ts",
+      "line": 95,
+      "text": "const targetRoot = getUserHawkNextPluginRoot();"
+    },
+    {
+      "file": "packages/services/src/plugin-sync/pluginSyncService.ts",
+      "line": 197,
+      "text": "getUserHawkNextPluginRoot(),"
+    },
+    {
+      "file": "packages/services/src/plugin-sync/pluginSyncService.ts",
+      "line": 198,
+      "text": "dirname(getUserHawkNextConfigPath()),"
+    },
+    {
+      "file": "packages/services/src/plugin-sync/pluginSyncService.ts",
+      "line": 219,
+      "text": "function getUserHawkNextConfigPath(): string {"
+    },
+    {
+      "file": "packages/services/src/plugin-sync/pluginSyncService.ts",
+      "line": 223,
+      "text": "function getUserHawkNextPluginRoot(): string {"
+    },
+    {
+      "file": "packages/services/src/plugin-sync/pluginSyncService.ts",
+      "line": 377,
+      "text": "const targetRoot = join(getUserHawkNextPluginRoot(), MARKETPLACE_SOURCE_ROOT_DIRECTORY);"
+    },
+    {
+      "file": "packages/services/src/plugin-sync/pluginSyncService.ts",
+      "line": 403,
+      "text": "const parsed = await readJsonFileOrEmpty(getUserHawkNextConfigPath());"
+    },
+    {
+      "file": "packages/services/src/plugin-sync/pluginSyncService.ts",
+      "line": 446,
+      "text": "const targetRoot = getUserHawkNextPluginRoot();"
+    },
+    {
+      "file": "packages/services/src/plugin-sync/pluginSyncService.ts",
+      "line": 910,
+      "text": "const filePath = getUserHawkNextConfigPath();"
+    },
+    {
+      "file": "packages/services/src/providers/api/nodeApiClient.ts",
+      "line": 17,
+      "text": "onHawkNextJwtInvalid?: (input: string | URL, headers: Headers) => void;"
+    },
+    {
+      "file": "packages/services/src/providers/api/nodeApiClient.ts",
+      "line": 18,
+      "text": "isHawkNextJwtRequest?: (input: string | URL, headers: Headers) => boolean | Promise<boolean>;"
+    },
+    {
+      "file": "packages/services/src/providers/api/nodeApiClient.ts",
+      "line": 79,
+      "text": "private readonly onHawkNextJwtInvalid?: (input: string | URL, headers: Headers) => void;"
+    },
+    {
+      "file": "packages/services/src/providers/api/nodeApiClient.ts",
+      "line": 80,
+      "text": "private readonly isHawkNextJwtRequest?: NodeApiClientOptions[\"isHawkNextJwtRequest\"];"
+    },
+    {
+      "file": "packages/services/src/providers/api/nodeApiClient.ts",
+      "line": 84,
+      "text": "this.onHawkNextJwtInvalid = options.onHawkNextJwtInvalid;"
+    },
+    {
+      "file": "packages/services/src/providers/api/nodeApiClient.ts",
+      "line": 85,
+      "text": "this.isHawkNextJwtRequest = options.isHawkNextJwtRequest;"
+    },
+    {
+      "file": "packages/services/src/providers/api/nodeApiClient.ts",
+      "line": 136,
+      "text": "if (await this.isHawkNextJwtRequest?.(requestInput, new Headers(requestHeaders))) {"
+    },
+    {
+      "file": "packages/services/src/providers/api/nodeApiClient.ts",
+      "line": 137,
+      "text": "this.onHawkNextJwtInvalid?.(requestInput, new Headers(requestHeaders));"
+    },
+    {
+      "file": "packages/services/src/settings-sync/settingsSync.ts",
+      "line": 18,
+      "text": "copyClaudeAgentsFileToHawkNextAgentsFile(request?: {"
+    },
+    {
+      "file": "packages/services/src/settings-sync/settingsSyncService.ts",
+      "line": 424,
+      "text": "function getWorkspaceHawkNextSkillRoot(workspacePath: string): string {"
+    },
+    {
+      "file": "packages/services/src/settings-sync/settingsSyncService.ts",
+      "line": 428,
+      "text": "function getUserHawkNextSkillRoot(): string {"
+    },
+    {
+      "file": "packages/services/src/settings-sync/settingsSyncService.ts",
+      "line": 432,
+      "text": "function getWorkspaceHawkNextCommandRoot(workspacePath: string): string {"
+    },
+    {
+      "file": "packages/services/src/settings-sync/settingsSyncService.ts",
+      "line": 436,
+      "text": "function getUserHawkNextCommandRoot(): string {"
+    },
+    {
+      "file": "packages/services/src/settings-sync/settingsSyncService.ts",
+      "line": 440,
+      "text": "function getWorkspaceHawkNextPluginRoot(workspacePath: string): string {"
+    },
+    {
+      "file": "packages/services/src/settings-sync/settingsSyncService.ts",
+      "line": 444,
+      "text": "function getUserHawkNextPluginRoot(): string {"
+    },
+    {
+      "file": "packages/services/src/settings-sync/settingsSyncService.ts",
+      "line": 448,
+      "text": "function getUserHawkNextCliConfigPath(): string {"
+    },
+    {
+      "file": "packages/services/src/settings-sync/settingsSyncService.ts",
+      "line": 452,
+      "text": "function getWorkspaceHawkNextConfigPath(workspacePath: string): string {"
+    },
+    {
+      "file": "packages/services/src/settings-sync/settingsSyncService.ts",
+      "line": 460,
+      "text": "function getUserHawkNextAgentsFilePath(): string {"
+    },
+    {
+      "file": "packages/services/src/settings-sync/settingsSyncService.ts",
+      "line": 469,
+      "text": "return getUserHawkNextSkillRoot();"
+    },
+    {
+      "file": "packages/services/src/settings-sync/settingsSyncService.ts",
+      "line": 471,
+      "text": "return workspacePath ? getWorkspaceHawkNextSkillRoot(workspacePath) : null;"
+    },
+    {
+      "file": "packages/services/src/settings-sync/settingsSyncService.ts",
+      "line": 480,
+      "text": "? getWorkspaceHawkNextSkillRoot(workspacePath)"
+    },
+    {
+      "file": "packages/services/src/settings-sync/settingsSyncService.ts",
+      "line": 482,
+      "text": ": getUserHawkNextSkillRoot();"
+    },
+    {
+      "file": "packages/services/src/settings-sync/settingsSyncService.ts",
+      "line": 490,
+      "text": "return getUserHawkNextCommandRoot();"
+    },
+    {
+      "file": "packages/services/src/settings-sync/settingsSyncService.ts",
+      "line": 492,
+      "text": "return workspacePath ? getWorkspaceHawkNextCommandRoot(workspacePath) : null;"
+    },
+    {
+      "file": "packages/services/src/settings-sync/settingsSyncService.ts",
+      "line": 501,
+      "text": "? getWorkspaceHawkNextCommandRoot(workspacePath)"
+    },
+    {
+      "file": "packages/services/src/settings-sync/settingsSyncService.ts",
+      "line": 503,
+      "text": ": getUserHawkNextCommandRoot();"
+    },
+    {
+      "file": "packages/services/src/settings-sync/settingsSyncService.ts",
+      "line": 511,
+      "text": "return getUserHawkNextPluginRoot();"
+    },
+    {
+      "file": "packages/services/src/settings-sync/settingsSyncService.ts",
+      "line": 513,
+      "text": "return workspacePath ? getWorkspaceHawkNextPluginRoot(workspacePath) : null;"
+    },
+    {
+      "file": "packages/services/src/settings-sync/settingsSyncService.ts",
+      "line": 522,
+      "text": "? getWorkspaceHawkNextPluginRoot(workspacePath)"
+    },
+    {
+      "file": "packages/services/src/settings-sync/settingsSyncService.ts",
+      "line": 524,
+      "text": ": getUserHawkNextPluginRoot();"
+    },
+    {
+      "file": "packages/services/src/settings-sync/settingsSyncService.ts",
+      "line": 532,
+      "text": "return getUserHawkNextCliConfigPath();"
+    },
+    {
+      "file": "packages/services/src/settings-sync/settingsSyncService.ts",
+      "line": 534,
+      "text": "return workspacePath ? getWorkspaceHawkNextConfigPath(workspacePath) : null;"
+    },
+    {
+      "file": "packages/services/src/settings-sync/settingsSyncService.ts",
+      "line": 542,
+      "text": "return getUserHawkNextCliConfigPath();"
+    },
+    {
+      "file": "packages/services/src/settings-sync/settingsSyncService.ts",
+      "line": 544,
+      "text": "return workspacePath ? getWorkspaceHawkNextConfigPath(workspacePath) : null;"
+    },
+    {
+      "file": "packages/services/src/settings-sync/settingsSyncService.ts",
+      "line": 1024,
+      "text": "function readHawkNextMcpServers(parsed: Record<string, unknown>): Record<string, McpServerConfig> {"
+    },
+    {
+      "file": "packages/services/src/settings-sync/settingsSyncService.ts",
+      "line": 1099,
+      "text": "readHawkNextMcpServers(await readJsonFileOrEmpty(targetConfigPath)),"
+    },
+    {
+      "file": "packages/services/src/settings-sync/settingsSyncService.ts",
+      "line": 1107,
+      "text": "async function addMcpServerToHawkNextConfig("
+    },
+    {
+      "file": "packages/services/src/settings-sync/settingsSyncService.ts",
+      "line": 1114,
+      "text": "const servers = readHawkNextMcpServers(parsed);"
+    },
+    {
+      "file": "packages/services/src/settings-sync/settingsSyncService.ts",
+      "line": 2143,
+      "text": "await addMcpServerToHawkNextConfig(selectedConfigPath, candidate.name, candidate.config);"
+    },
+    {
+      "file": "packages/services/src/settings-sync/settingsSyncService.ts",
+      "line": 2208,
+      "text": "const targetPath = getUserHawkNextAgentsFilePath();"
+    },
+    {
+      "file": "packages/services/src/settings-sync/settingsSyncService.ts",
+      "line": 2221,
+      "text": "async function copyClaudeAgentsFileToHawkNextAgentsFile(params: {"
+    },
+    {
+      "file": "packages/services/src/settings-sync/settingsSyncService.ts",
+      "line": 2225,
+      "text": "const targetPath = getUserHawkNextAgentsFilePath();"
+    },
+    {
+      "file": "packages/services/src/settings-sync/settingsSyncService.ts",
+      "line": 2278,
+      "text": "async copyClaudeAgentsFileToHawkNextAgentsFile("
+    },
+    {
+      "file": "packages/services/src/settings-sync/settingsSyncService.ts",
+      "line": 2281,
+      "text": "const result = await copyClaudeAgentsFileToHawkNextAgentsFile({"
+    },
+    {
+      "file": "packages/services/src/skill-sync/skillSyncService.ts",
+      "line": 39,
+      "text": "const root = getUserHawkNextSkillRoot();"
+    },
+    {
+      "file": "packages/services/src/skill-sync/skillSyncService.ts",
+      "line": 111,
+      "text": "return checkRemoteSyncDirectoryWriteAccess(getUserHawkNextSkillRoot());"
+    },
+    {
+      "file": "packages/services/src/skill-sync/skillSyncService.ts",
+      "line": 133,
+      "text": "function getUserHawkNextSkillRoot(): string {"
+    },
+    {
+      "file": "packages/services/src/skill-sync/skillSyncService.ts",
+      "line": 143,
+      "text": "const userHawkNextSkillRoot = getUserHawkNextSkillRoot();"
+    },
+    {
+      "file": "packages/services/src/skill-sync/skillSyncService.ts",
+      "line": 144,
+      "text": "const rawHawkNextCandidates = await collectUserSkillCandidatesInRoot(userHawkNextSkillRoot);"
+    },
+    {
+      "file": "packages/services/src/skill-sync/skillSyncService.ts",
+      "line": 145,
+      "text": "const hawknextDirectoryNames = await collectCoveredSkillDirectoryNamesInRoot(userHawkNextSkillRoot);"
+    },
+    {
+      "file": "packages/services/src/skill-sync/skillSyncService.ts",
+      "line": 147,
+      "text": "rawHawkNextCandidates.map((candidate) => normalizeSkillNameKey(candidate.name)),"
+    },
+    {
+      "file": "packages/services/src/skill-sync/skillSyncService.ts",
+      "line": 150,
+      "text": "rawHawkNextCandidates,"
+    },
+    {
+      "file": "packages/services/src/skill-sync/skillSyncService.ts",
+      "line": 381,
+      "text": "const result = await collectSkillDirectoryPathByName(getUserHawkNextSkillRoot());"
+    },
+    {
+      "file": "packages/services/src/skill-sync/skillSyncService.ts",
+      "line": 395,
+      "text": "const targetRoot = getUserHawkNextSkillRoot();"
+    },
+    {
+      "file": "packages/services/src/skills/skillsService.ts",
+      "line": 73,
+      "text": "function getWorkspaceHawkNextSkillRoot(workspacePath: string): string {"
+    },
+    {
+      "file": "packages/services/src/skills/skillsService.ts",
+      "line": 83,
+      "text": "function getUserHawkNextSkillRoot(): string {"
+    },
+    {
+      "file": "packages/services/src/skills/skillsService.ts",
+      "line": 119,
+      "text": "async function isUserAgentsSkillCoveredByHawkNext(params: {"
+    },
+    {
+      "file": "packages/services/src/skills/skillsService.ts",
+      "line": 122,
+      "text": "userHawkNextSkillNameKeys: Set<string>;"
+    },
+    {
+      "file": "packages/services/src/skills/skillsService.ts",
+      "line": 124,
+      "text": "const { skillPath, rootPath, userHawkNextSkillNameKeys } = params;"
+    },
+    {
+      "file": "packages/services/src/skills/skillsService.ts",
+      "line": 128,
+      "text": "if (await exists(join(getUserHawkNextSkillRoot(), basename(dirname(skillPath)), SKILL_FILE_NAME))) {"
+    },
+    {
+      "file": "packages/services/src/skills/skillsService.ts",
+      "line": 131,
+      "text": "return userHawkNextSkillNameKeys.has(await readSkillNameKey(skillPath));"
+    },
+    {
+      "file": "packages/services/src/skills/skillsService.ts",
+      "line": 160,
+      "text": "roots.push(getWorkspaceHawkNextSkillRoot(dir));"
+    },
+    {
+      "file": "packages/services/src/skills/skillsService.ts",
+      "line": 858,
+      "text": "rootPath: getUserHawkNextSkillRoot(),"
+    },
+    {
+      "file": "packages/services/src/skills/skillsService.ts",
+      "line": 870,
+      "text": "const userHawkNextSkillNameKeys = params.includeUserSkills"
+    },
+    {
+      "file": "packages/services/src/skills/skillsService.ts",
+      "line": 871,
+      "text": "? await collectSkillNameKeysInRoot(getUserHawkNextSkillRoot())"
+    },
+    {
+      "file": "packages/services/src/skills/skillsService.ts",
+      "line": 888,
+      "text": "await isUserAgentsSkillCoveredByHawkNext({"
+    },
+    {
+      "file": "packages/services/src/skills/skillsService.ts",
+      "line": 891,
+      "text": "userHawkNextSkillNameKeys,"
+    },
+    {
+      "file": "packages/services/src/skills/skillsService.ts",
+      "line": 1138,
+      "text": "? getWorkspaceHawkNextSkillRoot(params.workspacePath)"
+    },
+    {
+      "file": "packages/services/src/skills/skillsService.ts",
+      "line": 1139,
+      "text": ": getUserHawkNextSkillRoot();"
+    },
+    {
+      "file": "packages/services/src/skills/skillsService.ts",
+      "line": 1164,
+      "text": "const userCommonRoot = getUserHawkNextSkillRoot().replaceAll(\"\\\\\", \"/\").toLowerCase();"
+    },
+    {
+      "file": "packages/services/src/skills/skillsService.ts",
+      "line": 1165,
+      "text": "const workspaceCommonRoot = getWorkspaceHawkNextSkillRoot(params.workspacePath)"
+    },
+    {
+      "file": "packages/services/src/skills/skillsService.ts",
+      "line": 1211,
+      "text": "allowedRootCandidates.push(getUserHawkNextSkillRoot());"
+    },
+    {
+      "file": "packages/services/src/usage-stats/providers/cloudCnUsageQuotaProvider.ts",
+      "line": 900,
+      "text": "\"X-CloudCn-Authorization\": authorization.codingPlanAuthorization,"
+    },
+    {
+      "file": "packages/services/src/usage-stats/providers/cloudCnUsageQuotaProvider.ts",
+      "line": 905,
+      "text": "headers[\"CloudCn-Target-Type\"] = authorization.teamContext ? \"TEAM\" : \"PERSONAL\";"
+    },
+    {
+      "file": "packages/services/src/usage-stats/providers/cloudCnUsageQuotaProvider.ts",
+      "line": 907,
+      "text": "headers[\"CloudCn-Organization\"] = authorization.teamContext.organizationId;"
+    },
+    {
+      "file": "packages/services/src/usage-stats/providers/cloudCnUsageQuotaProvider.ts",
+      "line": 908,
+      "text": "headers[\"CloudCn-Project\"] = authorization.teamContext.projectId;"
+    },
+    {
+      "file": "packages/shared/src/hawknext-protocol/index.ts",
+      "line": 44,
+      "text": "hawknextSyntheticUserMessageSourceSchema as legacyHawkNextSyntheticUserMessageSourceSchema,"
+    },
+    {
+      "file": "packages/shared/src/hawknext-protocol/index.ts",
+      "line": 585,
+      "text": "const hawknextTurnInputSourceSchema = legacyHawkNextSyntheticUserMessageSourceSchema;"
+    },
+    {
+      "file": "packages/shared/src/official-mcp-auth.ts",
+      "line": 20,
+      "text": "codingPlanAuthorization: \"X-CloudCn-Authorization\","
+    },
+    {
+      "file": "packages/shared/src/official-mcp-auth.ts",
+      "line": 21,
+      "text": "targetType: \"CloudCn-Target-Type\","
+    },
+    {
+      "file": "packages/shared/src/official-mcp-auth.ts",
+      "line": 22,
+      "text": "organization: \"CloudCn-Organization\","
+    },
+    {
+      "file": "packages/shared/src/official-mcp-auth.ts",
+      "line": 23,
+      "text": "project: \"CloudCn-Project\","
+    },
+    {
+      "file": "packages/shared/src/official-mcp-auth.ts",
+      "line": 74,
+      "text": "/** 服务端 `CloudCn-Target-Type` 的取值（对齐 hawknext-server 的 CodingPlanTargetType）。 */"
+    },
+    {
+      "file": "packages/ui/src/hooks/useWorkflowRunNodeResult.ts",
+      "line": 2,
+      "text": "import type { V4ConversationWorkflowRunNodeResultResult } from \"@hawknext/shared/hawknext-protocol-v4\";"
+    },
+    {
+      "file": "packages/ui/src/lib/skillSourceFilter.ts",
+      "line": 18,
+      "text": "function isHawkNextSkill(skill: { id?: string; path: string; scope?: string }): boolean {"
+    },
+    {
+      "file": "packages/ui/src/lib/skillSourceFilter.ts",
+      "line": 32,
+      "text": "return skills.filter(isHawkNextSkill);"
+    },
+    {
+      "file": "packages/ui/src/onboarding/useOnboardingAgentsFileMigration.ts",
+      "line": 75,
+      "text": "const result = await settingsSyncService.copyClaudeAgentsFileToHawkNextAgentsFile({"
+    },
+    {
+      "file": "packages/ui/src/root/hawknextJwtInvalidRestartMarker.ts",
+      "line": 20,
+      "text": "export function markHawkNextJwtInvalidRestart(storage?: RestartMarkerStorage): void {"
+    },
+    {
+      "file": "packages/ui/src/root/hawknextJwtInvalidRestartMarker.ts",
+      "line": 24,
+      "text": "export function consumeHawkNextJwtInvalidRestartMarker(storage?: RestartMarkerStorage): boolean {"
+    },
+    {
+      "file": "packages/ui/src/root/useRootOAuthEffects.ts",
+      "line": 26,
+      "text": "import { markHawkNextJwtInvalidRestart } from \"@/root/hawknextJwtInvalidRestartMarker.js\";"
+    },
+    {
+      "file": "packages/ui/src/root/useRootOAuthEffects.ts",
+      "line": 222,
+      "text": "markHawkNextJwtInvalidRestart();"
+    },
+    {
+      "file": "packages/ui/src/Root.tsx",
+      "line": 53,
+      "text": "import { consumeHawkNextJwtInvalidRestartMarker } from \"@/root/hawknextJwtInvalidRestartMarker.js\";"
+    },
+    {
+      "file": "packages/ui/src/Root.tsx",
+      "line": 206,
+      "text": "consumeHawkNextJwtInvalidRestartMarker() ? \"session-expired\" : null,"
+    },
+    {
+      "file": "packages/ui/src/settings/model-provider-section/codingPlanEmbeddedWebview.ts",
+      "line": 322,
+      "text": "// CloudCN OAuth callback 同样落盘（见 resolveCloudCNStartPlanHawkNextJwt）。"
+    },
+    {
+      "file": "packages/ui/src/SettingsPage.tsx",
+      "line": 359,
+      "text": "const usageCloudCnProvider = usageProviderSettingsView?.providers.find("
+    },
+    {
+      "file": "packages/ui/src/SettingsPage.tsx",
+      "line": 366,
+      "text": "const usageCloudCnProviderAccess = resolveEntitledAccountProviderAccess("
+    },
+    {
+      "file": "packages/ui/src/SettingsPage.tsx",
+      "line": 374,
+      "text": "const usageCloudCnProviderFingerprint = resolveEntitledAccountProviderAccessFingerprint("
+    },
+    {
+      "file": "packages/ui/src/SettingsPage.tsx",
+      "line": 382,
+      "text": "const usageCloudCnTeamProviderFingerprint = resolveEntitledAccountProviderAccessFingerprint("
+    },
+    {
+      "file": "packages/ui/src/SettingsPage.tsx",
+      "line": 405,
+      "text": "const usageCloudCnEntitlement = useUsageEntitlement({"
+    },
+    {
+      "file": "packages/ui/src/SettingsPage.tsx",
+      "line": 409,
+      "text": "Boolean(usageCloudCnProviderFingerprint),"
+    },
+    {
+      "file": "packages/ui/src/SettingsPage.tsx",
+      "line": 412,
+      "text": "accountAccess: usageCloudCnProviderAccess?.access,"
+    },
+    {
+      "file": "packages/ui/src/SettingsPage.tsx",
+      "line": 418,
+      "text": "providerFingerprint: usageCloudCnProviderFingerprint,"
+    },
+    {
+      "file": "packages/ui/src/SettingsPage.tsx",
+      "line": 426,
+      "text": "const usageCloudCnEnterpriseProducts = useEnterpriseCodingPlanProducts({"
+    },
+    {
+      "file": "packages/ui/src/SettingsPage.tsx",
+      "line": 427,
+      "text": "enabled: !usageProviderSettingsLoading && Boolean(usageCloudCnTeamProviderFingerprint),"
+    },
+    {
+      "file": "packages/ui/src/SettingsPage.tsx",
+      "line": 438,
+      "text": "...(usageCloudCnEnterpriseProducts.snapshot?.productList.filter("
+    },
+    {
+      "file": "packages/ui/src/SettingsPage.tsx",
+      "line": 446,
+      "text": "usageCloudCnEnterpriseProducts.snapshot?.productList,"
+    },
+    {
+      "file": "packages/ui/src/SettingsPage.tsx",
+      "line": 472,
+      "text": "usageCloudCnProviderAccess &&"
+    },
+    {
+      "file": "packages/ui/src/SettingsPage.tsx",
+      "line": 474,
+      "text": "usageCloudCnEntitlement.snapshot,"
+    },
+    {
+      "file": "packages/ui/src/SettingsPage.tsx",
+      "line": 481,
+      "text": "accountAccess: usageCloudCnProviderAccess.access,"
+    },
+    {
+      "file": "packages/ui/src/SettingsPage.tsx",
+      "line": 482,
+      "text": "label: usageCloudCnProvider?.providerName,"
+    },
+    {
+      "file": "packages/ui/src/SettingsPage.tsx",
+      "line": 488,
+      "text": "usageCloudCnEntitlement.snapshot,"
+    },
+    {
+      "file": "packages/ui/src/SettingsPage.tsx",
+      "line": 489,
+      "text": "usageCloudCnProvider,"
+    },
+    {
+      "file": "packages/ui/src/SettingsPage.tsx",
+      "line": 490,
+      "text": "usageCloudCnProviderAccess,"
+    },
+    {
+      "file": "packages/ui/src/SettingsPage.tsx",
+      "line": 542,
+      "text": "usageCloudCnProviderFingerprint &&"
+    },
+    {
+      "file": "packages/ui/src/SettingsPage.tsx",
+      "line": 543,
+      "text": "(usageCloudCnEntitlement.loading ||"
+    },
+    {
+      "file": "packages/ui/src/SettingsPage.tsx",
+      "line": 544,
+      "text": "(!usageCloudCnEntitlement.snapshot && !usageCloudCnEntitlement.error)),"
+    },
+    {
+      "file": "packages/ui/src/SettingsPage.tsx",
+      "line": 550,
+      "text": "usageCloudCnEnterpriseProducts.loading ||"
+    },
+    {
+      "file": "packages/web/src/auth/zaiWebOAuthProvider.ts",
+      "line": 126,
+      "text": "// 服务端按 provider 把 access_token 放在不同子对象里（GrantJWT 的 resp.Zai / resp.CloudCn）。"
+    }
+  ]
+}
